@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { PageBanner } from "@/components/site/PageBanner";
 import { usePageMeta } from "@/lib/usePageMeta";
-import heroHospital from "@/assets/images/hero-hospital.jpg";
+import galleryBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.37.02 PM.jpeg";
 
 const imageModules = import.meta.glob("../assets/images/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
   eager: true,
@@ -44,7 +44,7 @@ export function GalleryPage() {
       <PageBanner
         title="Gallery"
         subtitle="A glimpse into our hospital, our team, our facilities, and the images you added in the assets folder."
-        image={heroHospital}
+        image={galleryBanner}
         crumbs={[{ label: "Gallery" }]}
       />
       <section className="container-x py-16">

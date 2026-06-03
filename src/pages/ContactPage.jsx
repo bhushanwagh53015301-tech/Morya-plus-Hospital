@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/site/ContactForm";
 import { PageBanner } from "@/components/site/PageBanner";
 import { site } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import heroHospital from "@/assets/images/hero-hospital.jpg";
+import contactBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.25 PM.jpeg";
 
 export function ContactPage() {
   const [searchParams] = useSearchParams();
@@ -21,7 +21,7 @@ export function ContactPage() {
       <PageBanner
         title="Contact Us"
         subtitle="We're here to help - call us, message us, or visit us in Kunjirwadi."
-        image={heroHospital}
+        image={contactBanner}
         crumbs={[{ label: "Contact" }]}
       />
 

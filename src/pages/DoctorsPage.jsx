@@ -5,7 +5,7 @@ import d1 from "@/assets/images/doctor-1.jpg";
 import d2 from "@/assets/images/doctor-2.jpg";
 import d3 from "@/assets/images/doctor-3.jpg";
 import d4 from "@/assets/images/doctor-4.jpg";
-import heroDoctors from "@/assets/images/hero-doctors.jpg";
+import doctorsBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.42.57 PM.jpeg";
 
 const images = {
   "doctor-1": d1,
@@ -25,7 +25,7 @@ export function DoctorsPage() {
       <PageBanner
         title="Our Doctors"
         subtitle="A team of experienced consultants dedicated to compassionate, evidence-based care."
-        image={heroDoctors}
+        image={doctorsBanner}
         crumbs={[{ label: "Doctors" }]}
       />
       <section className="container-x py-16">

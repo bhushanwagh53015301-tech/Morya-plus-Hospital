@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageBanner } from "@/components/site/PageBanner";
 import { departments } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import heroHospital from "@/assets/images/hero-hospital.jpg";
+import departmentsBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.11 PM.jpeg";
 
 export function DepartmentsPage() {
   usePageMeta(
@@ -16,7 +16,7 @@ export function DepartmentsPage() {
       <PageBanner
         title="Departments & Specialities"
         subtitle="Comprehensive care across 11+ specialities - all under one roof."
-        image={heroHospital}
+        image={departmentsBanner}
         crumbs={[{ label: "Departments" }]}
       />
 

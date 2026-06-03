@@ -5,7 +5,7 @@ import { PageBanner } from "@/components/site/PageBanner";
 import { site, stats, whyChooseUs } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
 import heroDoctors from "@/assets/images/hero-doctors.jpg";
-import heroHospital from "@/assets/images/hero-hospital.jpg";
+import aboutBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.24 PM.jpeg";
 
 export function AboutPage() {
   usePageMeta(
@@ -18,7 +18,7 @@ export function AboutPage() {
       <PageBanner
         title="About Morya Plus Hospital"
         subtitle="A patient-first multispeciality hospital on the Pune-Solapur Highway, dedicated to ethical and affordable healthcare."
-        image={heroHospital}
+        image={aboutBanner}
         crumbs={[{ label: "About" }]}
       />
 

@@ -1,13 +1,13 @@
 import { PageBanner } from "@/components/site/PageBanner";
 import { facilities } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import facilityDiagnostic from "@/assets/images/facility-diagnostic.jpg";
-import facilityIcu from "@/assets/images/facility-icu.jpg";
-import facilityOt from "@/assets/images/facility-ot.jpg";
-import facilityPharmacy from "@/assets/images/facility-pharmacy.jpg";
-import facilityReception from "@/assets/images/facility-reception.jpg";
-import facilityRoom from "@/assets/images/facility-room.jpg";
-import heroHospital from "@/assets/images/hero-hospital.jpg";
+import facilitiesBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.28 PM.jpeg";
+import facilityDiagnostic from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.25 PM.jpeg";
+import facilityIcu from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.28 PM.jpeg";
+import facilityOt from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.10 PM.jpeg";
+import facilityPharmacy from "@/assets/images/WhatsApp Image 2026-05-26 at 5.37.02 PM.jpeg";
+import facilityReception from "@/assets/images/WhatsApp Image 2026-05-26 at 5.36.53 PM.jpeg";
+import facilityRoom from "@/assets/images/WhatsApp Image 2026-05-26 at 5.36.50 PM (1).jpeg";
 
 const images = {
   icu: facilityIcu,
@@ -29,7 +29,7 @@ export function FacilitiesPage() {
       <PageBanner
         title="Our Facilities"
         subtitle="World-class infrastructure designed around patient comfort and clinical excellence."
-        image={heroHospital}
+        image={facilitiesBanner}
         crumbs={[{ label: "Facilities" }]}
       />
       <section className="container-x py-16">

@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { PageBanner } from "@/components/site/PageBanner";
 import { departments, site } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import heroHospital from "@/assets/images/hero-hospital.jpg";
+import departmentBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.27 PM.jpeg";
 import { NotFoundPage } from "./NotFoundPage";
 
 export function DepartmentDetailPage() {
@@ -28,7 +28,7 @@ export function DepartmentDetailPage() {
       <PageBanner
         title={department.name}
         subtitle={department.short}
-        image={heroHospital}
+        image={departmentBanner}
         crumbs={[{ label: "Departments", to: "/departments" }, { label: department.name }]}
       />
 
