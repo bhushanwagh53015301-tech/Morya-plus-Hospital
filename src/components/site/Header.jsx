@@ -3,11 +3,13 @@ import { CalendarCheck, Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/logo/Morya.svg";
 import { nav, site } from "@/data/site";
+import { useAppointmentModal } from "./AppointmentModalContext";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { openAppointment } = useAppointmentModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -65,12 +67,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            to="/contact?mode=appointment"
+          <button
+            type="button"
+            onClick={openAppointment}
             className="hidden items-center gap-2 rounded-full gradient-brand px-4 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:opacity-95 md:inline-flex"
           >
             <CalendarCheck className="h-4 w-4" /> Book Appointment
-          </Link>
+          </button>
           <button
             type="button"
             aria-label="Toggle menu"
@@ -99,12 +102,13 @@ export function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <Link
-              to="/contact?mode=appointment"
+            <button
+              type="button"
+              onClick={openAppointment}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full gradient-brand px-4 py-3 text-sm font-semibold text-white"
             >
               <CalendarCheck className="h-4 w-4" /> Book Appointment
-            </Link>
+            </button>
           </div>
         </div>
       ) : null}

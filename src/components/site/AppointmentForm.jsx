@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { buildAppointmentWhatsAppUrl } from "@/lib/contact";
-import { departments, doctors, site } from "@/data/site";
+import { departments, site } from "@/data/site";
 
 const initialState = {
   name: "",
   phone: "",
-  email: "",
   department: "",
-  doctor: "",
   preferredDate: "",
   preferredTime: "",
-  message: "",
 };
 
 export function AppointmentForm({
@@ -58,7 +55,7 @@ export function AppointmentForm({
     return (
       <div className="py-10 text-center">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full gradient-brand text-2xl text-white">
-          ✓
+          {"\u2713"}
         </div>
         <h3 className="mt-4 text-xl font-bold">{successTitle}</h3>
         <p className="mt-2 text-muted-foreground">{successText}</p>
@@ -92,49 +89,26 @@ export function AppointmentForm({
           required
         />
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Input
-          label="Email"
-          name="email"
-          type="email"
-          value={formData.email}
+
+      <div>
+        <label className="text-sm font-medium text-foreground/80">Department</label>
+        <select
+          name="department"
+          value={formData.department}
           onChange={handleChange}
-        />
-        <div>
-          <label className="text-sm font-medium text-foreground/80">Department</label>
-          <select
-            name="department"
-            value={formData.department}
-            onChange={handleChange}
-            required
-            className="mt-1 w-full rounded-lg border border-input bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand"
-          >
-            <option value="">Select a department</option>
-            {departments.map((department) => (
-              <option key={department.slug} value={department.name}>
-                {department.name}
-              </option>
-            ))}
-          </select>
-        </div>
+          required
+          className="mt-1 w-full rounded-lg border border-input bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand"
+        >
+          <option value="">Select a department</option>
+          {departments.map((department) => (
+            <option key={department.slug} value={department.name}>
+              {department.name}
+            </option>
+          ))}
+        </select>
       </div>
-      <div className="grid gap-4 sm:grid-cols-3">
-        <div className="sm:col-span-1">
-          <label className="text-sm font-medium text-foreground/80">Preferred Doctor</label>
-          <select
-            name="doctor"
-            value={formData.doctor}
-            onChange={handleChange}
-            className="mt-1 w-full rounded-lg border border-input bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand"
-          >
-            <option value="">Any available doctor</option>
-            {doctors.map((doctor) => (
-              <option key={doctor.name} value={doctor.name}>
-                {doctor.name}
-              </option>
-            ))}
-          </select>
-        </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
         <Input
           label="Preferred Date"
           name="preferredDate"
@@ -151,17 +125,7 @@ export function AppointmentForm({
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label className="text-sm font-medium text-foreground/80">Notes</label>
-        <textarea
-          name="message"
-          rows={4}
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Symptoms, visit purpose, or any other details..."
-          className="mt-1 w-full rounded-lg border border-input bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand"
-        />
-      </div>
+
       {error ? <p className="text-sm text-emergency">{error}</p> : null}
       <button
         type="submit"

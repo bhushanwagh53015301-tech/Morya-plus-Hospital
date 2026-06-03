@@ -1,5 +1,3 @@
-import { useSearchParams } from "react-router-dom";
-import { AppointmentForm } from "@/components/site/AppointmentForm";
 import { Clock, Mail, MapPin, MessageCircle, Phone, Siren } from "lucide-react";
 import { ContactForm } from "@/components/site/ContactForm";
 import { PageBanner } from "@/components/site/PageBanner";
@@ -8,9 +6,6 @@ import { usePageMeta } from "@/lib/usePageMeta";
 import contactBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.25 PM.jpeg";
 
 export function ContactPage() {
-  const [searchParams] = useSearchParams();
-  const isAppointmentMode = searchParams.get("mode") === "appointment";
-
   usePageMeta(
     "Contact | Moryaplus Multi Speciality Hospital Kunjirwadi Pune",
     `Contact ${site.name}. Reception: ${site.phones.reception}, Emergency: ${site.phones.emergency}. Kunjirwadi, Pune.`,
@@ -51,15 +46,13 @@ export function ContactPage() {
 
       <section className="container-x grid gap-8 pb-16 lg:grid-cols-2">
         <div className="rounded-3xl border border-border/70 bg-white p-8 shadow-card">
-          <h2 className="font-display text-2xl font-bold">
-            {isAppointmentMode ? "Book an Appointment" : "Send us a message"}
-          </h2>
+          <h2 className="font-display text-2xl font-bold">Send us a message</h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            {isAppointmentMode
-              ? "Fill in your appointment details and we will open WhatsApp with a dedicated booking request."
-              : "We will open WhatsApp with your message. For emergencies please call directly."}
+            We will open WhatsApp with your message. For emergencies please call directly.
           </p>
-          <div className="mt-5">{isAppointmentMode ? <AppointmentForm /> : <ContactForm />}</div>
+          <div className="mt-5">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="space-y-5">

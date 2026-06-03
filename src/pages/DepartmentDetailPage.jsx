@@ -1,5 +1,6 @@
 import { CalendarCheck, CheckCircle2, Phone, Siren } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
+import { useAppointmentModal } from "@/components/site/AppointmentModalContext";
 import { PageBanner } from "@/components/site/PageBanner";
 import { departments, site } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
@@ -8,6 +9,7 @@ import { NotFoundPage } from "./NotFoundPage";
 
 export function DepartmentDetailPage() {
   const { slug } = useParams();
+  const { openAppointment } = useAppointmentModal();
   const department = departments.find((item) => item.slug === slug);
 
   usePageMeta(
@@ -87,12 +89,13 @@ export function DepartmentDetailPage() {
               >
                 <Siren className="h-4 w-4 animate-pulse" /> Emergency | {site.phones.emergency}
               </a>
-              <Link
-                to="/contact?mode=appointment"
+              <button
+                type="button"
+                onClick={openAppointment}
                 className="flex items-center justify-center gap-2 rounded-full bg-white px-4 py-2.5 font-semibold text-brand"
               >
                 <CalendarCheck className="h-4 w-4" /> Book Appointment
-              </Link>
+              </button>
             </div>
           </div>
 

@@ -18,7 +18,7 @@ import {
   Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AppointmentForm } from "@/components/site/AppointmentForm";
+import { useAppointmentModal } from "@/components/site/AppointmentModalContext";
 import { Counter } from "@/components/site/Counter";
 import {
   departments,
@@ -110,6 +110,8 @@ const packageItems = [
 ];
 
 export function HomePage() {
+  const { openAppointment } = useAppointmentModal();
+
   usePageMeta(
     "Moryaplus Multi Speciality Hospital | Hospital in Kunjirwadi, Pune",
     site.description,
@@ -119,26 +121,27 @@ export function HomePage() {
     <>
       <Hero />
       <TrustStrip />
-      <QuickActions />
+      <QuickActions onOpenAppointment={openAppointment} />
       <About />
       <VisionMission />
       <StatsSection />
       <PackagesSection />
       <DepartmentsSection />
-      <DoctorsSpotlightSection />
+      <DoctorsSpotlightSection onOpenAppointment={openAppointment} />
       <FacilitiesSection />
       <WhyChooseUsSection />
       <EmergencySection />
       <InsuranceSection />
       <TestimonialsSection />
       <GoogleProfile />
-      <AppointmentSection />
+      <AppointmentSection onOpenAppointment={openAppointment} />
       <FaqSection />
     </>
   );
 }
 
 function Hero() {
+  const { openAppointment } = useAppointmentModal();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -190,12 +193,13 @@ function Hero() {
             >
               <Siren className="h-4 w-4 animate-pulse" /> Emergency
             </a>
-            <Link
-              to="/contact?mode=appointment"
+            <button
+              type="button"
+              onClick={openAppointment}
               className="inline-flex items-center gap-2 rounded-full gradient-brand px-5 py-3 font-semibold text-white shadow-soft transition hover:scale-[1.02]"
             >
               <CalendarCheck className="h-4 w-4" /> Book Appointment
-            </Link>
+            </button>
             <a
               href={site.maps.profile}
               target="_blank"
@@ -261,7 +265,7 @@ function TrustStrip() {
   );
 }
 
-function QuickActions() {
+function QuickActions({ onOpenAppointment }) {
   const items = [
     {
       icon: Siren,
@@ -274,7 +278,7 @@ function QuickActions() {
       icon: CalendarCheck,
       label: "Book Appointment",
       desc: "Fast & easy",
-      href: "/contact?mode=appointment",
+      action: onOpenAppointment,
       color: "bg-brand text-white",
     },
     {
@@ -320,7 +324,11 @@ function QuickActions() {
               </div>
             );
 
-            return item.href.startsWith("/") ? (
+            return item.action ? (
+              <button key={item.label} type="button" onClick={item.action} className="text-left">
+                {content}
+              </button>
+            ) : item.href.startsWith("/") ? (
               <Link key={item.label} to={item.href}>
                 {content}
               </Link>
@@ -539,7 +547,7 @@ function DepartmentsSection() {
   );
 }
 
-function DoctorsSpotlightSection() {
+function DoctorsSpotlightSection({ onOpenAppointment }) {
   return (
     <section className="bg-brand-soft py-16">
       <div className="container-x">
@@ -569,12 +577,13 @@ function DoctorsSpotlightSection() {
                 <p className="mt-1 text-xs text-muted-foreground">{doctor.role}</p>
                 <p className="mt-3 text-sm text-foreground/75">{doctor.bio}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Link
-                    to="/contact?mode=appointment"
+                  <button
+                    type="button"
+                    onClick={onOpenAppointment}
                     className="inline-flex items-center gap-2 rounded-full gradient-brand px-4 py-2 text-xs font-semibold text-white"
                   >
                     <CalendarCheck className="h-3.5 w-3.5" /> Book Appointment
-                  </Link>
+                  </button>
                   <a
                     href={`tel:${site.phones.receptionTel}`}
                     className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold text-brand"
@@ -854,33 +863,41 @@ function GoogleProfile() {
   );
 }
 
-function AppointmentSection() {
+function AppointmentSection({ onOpenAppointment }) {
   return (
     <section id="appointment" className="container-x py-16">
-      <div className="grid overflow-hidden rounded-3xl shadow-soft lg:grid-cols-2">
-        <div className="gradient-brand flex flex-col justify-center p-10 text-white md:p-12">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">Book an Appointment</h2>
-          <p className="mt-3 max-w-md text-white/90">
-            Connect with our hospital team for consultations, treatment guidance, and specialist
-            appointments.
-          </p>
-          <div className="mt-6 space-y-2 text-sm text-white/90">
-            <p className="flex items-center gap-2">
-              <Phone className="h-4 w-4" /> Reception | {site.phones.reception}
+      <div className="overflow-hidden rounded-3xl shadow-soft">
+        <div className="gradient-brand grid gap-8 p-10 text-white md:p-12 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <h2 className="font-display text-3xl font-bold md:text-4xl">Book an Appointment</h2>
+            <p className="mt-3 max-w-2xl text-white/90">
+              Use our dedicated appointment page to send a focused booking request to the hospital
+              team without mixing it with the general contact form.
             </p>
-            <p className="flex items-center gap-2">
-              <Siren className="h-4 w-4" /> Emergency | {site.phones.emergency}
-            </p>
-            <p className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" /> {site.address.line2}, {site.address.locality}
-            </p>
+            <div className="mt-6 space-y-2 text-sm text-white/90">
+              <p className="flex items-center gap-2">
+                <Phone className="h-4 w-4" /> Reception | {site.phones.reception}
+              </p>
+              <p className="flex items-center gap-2">
+                <Siren className="h-4 w-4" /> Emergency | {site.phones.emergency}
+              </p>
+              <p className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" /> {site.address.line2}, {site.address.locality}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="bg-white p-8 md:p-10">
-          <AppointmentForm
-            buttonLabel="Open WhatsApp Request"
-            successText="Your appointment request is ready in WhatsApp."
-          />
+          <div className="flex flex-col justify-center rounded-3xl bg-white/12 p-6 backdrop-blur-sm">
+            <p className="text-sm text-white/85">
+              Go to the dedicated appointment page for the booking form and hospital details.
+            </p>
+            <button
+              type="button"
+              onClick={onOpenAppointment}
+              className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-brand"
+            >
+              <CalendarCheck className="h-4 w-4" /> Open Appointment Form
+            </button>
+          </div>
         </div>
       </div>
     </section>
