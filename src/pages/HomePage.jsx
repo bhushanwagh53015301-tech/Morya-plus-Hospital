@@ -43,7 +43,7 @@ import facilityReception from "@/assets/images/facility-reception.jpg";
 import facilityRoom from "@/assets/images/facility-room.jpg";
 import heroDoctors from "@/assets/images/hero-doctors.jpg";
 import heroEmergency from "@/assets/images/hero-emergency.jpg";
-import heroHospital from "@/assets/images/hero-hospital.jpg";
+import heroHospital from "@/assets/images/moryahplushospital.png";
 
 const facilityImages = {
   icu: facilityIcu,
@@ -64,6 +64,7 @@ const doctorImages = {
 const slides = [
   {
     img: heroHospital,
+    imgClassName: "object-cover object-[72%_center]",
     eyebrow: "Welcome to Morya Plus",
     title: "Compassionate Healthcare, Advanced Treatment",
     text: "Morya Plus Multispeciality Hospital in Kunjirwadi offers trusted medical care, 24/7 emergency support, diagnostics, ICU, surgery, and specialist consultations under one roof.",
@@ -162,7 +163,11 @@ function Hero() {
           }`}
           aria-hidden={index !== slideIndex}
         >
-          <img src={slide.img} alt={slide.title} className="h-full w-full object-cover" />
+          <img
+            src={slide.img}
+            alt={slide.title}
+            className={`h-full w-full ${slide.imgClassName ?? "object-cover"}`}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.2_0.05_250/.85)] via-[oklch(0.2_0.05_250/.55)] to-transparent" />
         </div>
       ))}
@@ -384,7 +389,7 @@ function About() {
       <div>
         <SectionTitle
           kicker="About Morya Plus"
-          title="Trusted Hospital Care for Kunjirwadi and Nearby Areas"
+          title="Trusted Hospital Care at Kunjirwadi, Pune Solapur Highway"
         />
         <p className="mt-5 leading-relaxed text-foreground/80">
           Morya Plus Multispeciality Hospital is committed to providing ethical, affordable, and

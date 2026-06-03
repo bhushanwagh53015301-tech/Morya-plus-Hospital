@@ -27,7 +27,7 @@ export const site = {
     emergency: "+91 9371639292",
     emergencyTel: "+919371639292",
   },
-  whatsapp: "https://wa.me/917517369292",
+  whatsapp: "https://wa.me/919371639292",
   email: "moryaplusmultispeciality@gmail.com",
   address: {
     line1: "Morya Plus Multispeciality Hospital",
