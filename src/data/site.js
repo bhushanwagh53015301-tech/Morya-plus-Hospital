@@ -1,6 +1,6 @@
 import {
   Activity,
-  Ambulance,
+  Brain,
   Baby,
   Bone,
   BriefcaseMedical,
@@ -81,14 +81,14 @@ export const departments = [
   },
   {
     slug: "emergency-care",
-    name: "Emergency Care",
+    name: "Emergency Care & Trauma Center",
     icon: Siren,
-    short: "24/7 critical and trauma support",
+    short: "24/7 emergency response and trauma support",
     summary:
-      "Round-the-clock emergency response with rapid triage, advanced life support, and a dedicated ambulance fleet for the Pune-Solapur highway corridor.",
+      "Round-the-clock emergency response with rapid triage, trauma stabilization, advanced life support, and immediate access to critical care services.",
     highlights: [
       "24x7 casualty and trauma bay",
-      "Advanced Life Support ambulance",
+      "Emergency trauma management",
       "Rapid triage protocols",
       "On-call multispeciality team",
     ],
@@ -145,21 +145,21 @@ export const departments = [
   },
   {
     slug: "orthopaedics",
-    name: "Orthopaedics",
+    name: "Orthopedic & Joint Replacement",
     icon: Bone,
-    short: "Bone, joint, and trauma care",
+    short: "Bone, joint, trauma, and replacement surgery care",
     summary:
-      "Comprehensive orthopaedic care including fracture management, joint replacement, sports injuries, and arthroscopy by experienced surgeons.",
+      "Comprehensive orthopedic care including fracture management, joint replacement, sports injuries, arthroscopy, and rehabilitation support by experienced surgeons.",
     highlights: ["Joint Replacement", "Trauma & Fractures", "Arthroscopy", "Spine Care"],
     conditions: ["Fractures", "Knee & Hip Pain", "Arthritis", "Sports Injury", "Back Pain"],
   },
   {
     slug: "gynaecology",
-    name: "Gynaecology",
+    name: "Gynaecologist & Obstetrics",
     icon: HeartPulse,
-    short: "Women's health and maternity",
+    short: "Women's health, maternity, and obstetric care",
     summary:
-      "Compassionate women's health services covering pregnancy care, painless delivery, gynaec surgeries, and infertility evaluation.",
+      "Compassionate women's health services covering obstetric care, pregnancy care, painless delivery, gynaec surgeries, and infertility evaluation.",
     highlights: [
       "Painless Delivery",
       "Antenatal Care",
@@ -215,23 +215,66 @@ export const departments = [
     conditions: ["Prescription Medicines", "Surgical Items", "First Aid", "Wellness Products"],
   },
   {
-    slug: "ambulance-services",
-    name: "Ambulance Services",
-    icon: Ambulance,
-    short: "Rapid response ambulance fleet",
+    slug: "neurology-neuro-surgery",
+    name: "Neurology & Neuro Surgery",
+    icon: Brain,
+    short: "Brain, spine, nerve, and neuro-trauma care",
     summary:
-      "Fully equipped Advanced Life Support and Basic Life Support ambulances covering Kunjirwadi and the Pune-Solapur highway region.",
+      "Specialized neurology and neuro surgery care for disorders of the brain, spine, and nervous system with emergency evaluation and advanced treatment planning.",
     highlights: [
-      "ALS / BLS Ambulances",
-      "Trained Paramedics",
-      "Oxygen & Monitor",
-      "Inter-hospital Transfer",
+      "Stroke Evaluation",
+      "Neuro-trauma Care",
+      "Spine & Nerve Disorder Management",
+      "Neuro Surgery Consultation",
     ],
     conditions: [
-      "Accident Pickup",
-      "Cardiac Transfer",
-      "ICU Shifting",
-      "Patient Discharge Transport",
+      "Stroke",
+      "Seizures",
+      "Head Injury",
+      "Spine Disorders",
+      "Neuropathy",
+    ],
+  },
+  {
+    slug: "urology-nephrology",
+    name: "Urology & Nephrology",
+    icon: Activity,
+    short: "Kidney, urinary tract, and renal care",
+    summary:
+      "Comprehensive urology and nephrology services for kidney health, urinary tract disorders, stone disease, and long-term renal care.",
+    highlights: [
+      "Kidney Stone Management",
+      "Urinary Tract Care",
+      "Renal Function Evaluation",
+      "Chronic Kidney Disease Support",
+    ],
+    conditions: [
+      "Kidney Stones",
+      "UTI",
+      "Prostate Concerns",
+      "Kidney Disease",
+      "Urinary Retention",
+    ],
+  },
+  {
+    slug: "oncology-oncology-surgery",
+    name: "Oncology & Oncology Surgery",
+    icon: BriefcaseMedical,
+    short: "Cancer diagnosis, treatment guidance, and surgical care",
+    summary:
+      "Dedicated oncology and oncology surgery services focused on cancer screening, diagnosis, treatment planning, and surgical management with multidisciplinary support.",
+    highlights: [
+      "Cancer Screening Guidance",
+      "Oncology Consultation",
+      "Tumor Surgery Planning",
+      "Multidisciplinary Care Support",
+    ],
+    conditions: [
+      "Breast Lumps",
+      "GI Tumors",
+      "Head & Neck Tumors",
+      "Soft Tissue Masses",
+      "Cancer Follow-up",
     ],
   },
   {
@@ -371,7 +414,7 @@ export const stats = [
   { value: 12000, suffix: "+", label: "Patients Treated" },
   { value: 25, suffix: "+", label: "Specialist Doctors" },
   { value: 50, suffix: "+", label: "Beds Capacity" },
-  { value: 11, suffix: "", label: "Departments" },
+  { value: 13, suffix: "", label: "Departments" },
 ];
 
 export const faqs = [
