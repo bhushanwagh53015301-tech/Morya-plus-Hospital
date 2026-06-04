@@ -3,7 +3,7 @@ import { ContactForm } from "@/components/site/ContactForm";
 import { PageBanner } from "@/components/site/PageBanner";
 import { site } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import contactBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.25 PM.jpeg";
+import contactBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.36.53 PM.jpeg";
 
 export function ContactPage() {
   usePageMeta(

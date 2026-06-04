@@ -5,7 +5,7 @@ import d1 from "@/assets/images/doctor-1.jpg";
 import d2 from "@/assets/images/doctor-2.jpg";
 import d3 from "@/assets/images/doctor-3.jpg";
 import d4 from "@/assets/images/doctor-4.jpg";
-import doctorsBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.42.57 PM.jpeg";
+import doctorsBanner from "@/assets/images/moryahplushospital.png";
 
 const images = {
   "doctor-1": d1,
@@ -26,6 +26,7 @@ export function DoctorsPage() {
         title="Our Doctors"
         subtitle="A team of experienced consultants dedicated to compassionate, evidence-based care."
         image={doctorsBanner}
+        imageClassName="object-[center_58%] md:object-[center_52%]"
         crumbs={[{ label: "Doctors" }]}
       />
       <section className="container-x py-16">

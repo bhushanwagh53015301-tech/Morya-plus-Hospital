@@ -2,14 +2,21 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { PageBanner } from "@/components/site/PageBanner";
 import { usePageMeta } from "@/lib/usePageMeta";
-import galleryBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.37.02 PM.jpeg";
+import galleryBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.11 PM.jpeg";
 
 const imageModules = import.meta.glob("../assets/images/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
   eager: true,
   import: "default",
 });
 
-const excludedImagePatterns = [/^gallery-\d+\./i, /^facility-/i, /^doctor-\d+\./i, /^hero-/i];
+const excludedImagePatterns = [
+  /^gallery-\d+\./i,
+  /^facility-/i,
+  /^doctor-\d+\./i,
+  /^hero-/i,
+  /^moryahospital\./i,
+  /^moryahplushospital\./i,
+];
 
 function prettyAltFromPath(path) {
   return path
@@ -45,6 +52,7 @@ export function GalleryPage() {
         title="Gallery"
         subtitle="A glimpse into our hospital, our team, our facilities, and the images you added in the assets folder."
         image={galleryBanner}
+        imageClassName="object-[center_56%] md:object-[center_48%]"
         crumbs={[{ label: "Gallery" }]}
       />
       <section className="container-x py-16">

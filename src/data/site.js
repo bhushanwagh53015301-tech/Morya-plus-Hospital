@@ -28,6 +28,7 @@ export const site = {
     emergencyTel: "+919371639292",
   },
   whatsapp: "https://wa.me/919371639292",
+  instagram: "https://www.instagram.com/morya_plus_hospital?igsh=MWY2NGhhemtqOTRvaA==",
   email: "moryaplusmultispeciality@gmail.com",
   address: {
     line1: "Morya Plus Multispeciality Hospital",

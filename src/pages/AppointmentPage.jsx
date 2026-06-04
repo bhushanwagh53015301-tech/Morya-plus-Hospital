@@ -3,7 +3,7 @@ import { AppointmentForm } from "@/components/site/AppointmentForm";
 import { PageBanner } from "@/components/site/PageBanner";
 import { site } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import appointmentBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.24 PM.jpeg";
+import appointmentBanner from "@/assets/images/hero-doctors.jpg";
 
 export function AppointmentPage() {
   usePageMeta(

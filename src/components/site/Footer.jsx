@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, Phone, Siren } from "lucide-react";
+import { Clock, Instagram, Mail, MapPin, Phone, Siren } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo/Morya.svg";
 import { departments, nav, site } from "@/data/site";
@@ -88,14 +88,25 @@ export function Footer() {
               </span>
             </li>
           </ul>
-          <a
-            href={site.maps.profile}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="mt-4 inline-flex items-center gap-2 text-sm text-teal hover:underline"
-          >
-            <MapPin className="h-4 w-4" /> View on Google Maps
-          </a>
+          <div className="mt-4 flex flex-wrap gap-4">
+            <a
+              href={site.maps.profile}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-2 text-sm text-teal hover:underline"
+            >
+              <MapPin className="h-4 w-4" /> View on Google Maps
+            </a>
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Visit Morya Plus Hospital on Instagram"
+              className="inline-flex items-center gap-2 text-sm text-teal hover:underline"
+            >
+              <Instagram className="h-4 w-4" /> Instagram
+            </a>
+          </div>
         </div>
       </div>
 

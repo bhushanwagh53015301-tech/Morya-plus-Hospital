@@ -1,7 +1,7 @@
 import { PageBanner } from "@/components/site/PageBanner";
 import { facilities } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import facilitiesBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.28 PM.jpeg";
+import facilitiesBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.10 PM.jpeg";
 import facilityDiagnostic from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.25 PM.jpeg";
 import facilityIcu from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.28 PM.jpeg";
 import facilityOt from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.10 PM.jpeg";

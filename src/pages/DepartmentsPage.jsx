@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageBanner } from "@/components/site/PageBanner";
 import { departments } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import departmentsBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.11 PM.jpeg";
+import departmentsBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.25 PM (1).jpeg";
 
 export function DepartmentsPage() {
   usePageMeta(

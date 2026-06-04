@@ -4,7 +4,7 @@ import { useAppointmentModal } from "@/components/site/AppointmentModalContext";
 import { PageBanner } from "@/components/site/PageBanner";
 import { departments, site } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import departmentBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.27 PM.jpeg";
+import departmentBanner from "@/assets/images/hero-doctors.jpg";
 import { NotFoundPage } from "./NotFoundPage";
 
 export function DepartmentDetailPage() {
