@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { PageBanner } from "@/components/site/PageBanner";
 import { usePageMeta } from "@/lib/usePageMeta";
-import galleryBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.11 PM.jpeg";
+import galleryBanner from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.16 PM (2).jpeg";
 
 const imageModules = import.meta.glob("../assets/images/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
   eager: true,
@@ -10,6 +10,7 @@ const imageModules = import.meta.glob("../assets/images/*.{jpg,jpeg,png,JPG,JPEG
 });
 
 const excludedImagePatterns = [
+  /^WhatsApp Image 2026-05-26 at 5\.41\.16 PM \(2\)\.jpeg$/i,
   /^gallery-\d+\./i,
   /^facility-/i,
   /^doctor-\d+\./i,

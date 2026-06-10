@@ -9,6 +9,7 @@ import { DoctorsPage } from "@/pages/DoctorsPage";
 import { FacilitiesPage } from "@/pages/FacilitiesPage";
 import { GalleryPage } from "@/pages/GalleryPage";
 import { HomePage } from "@/pages/HomePage";
+import { InsurancePartnersPage } from "@/pages/InsurancePartnersPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/facilities" element={<FacilitiesPage />} />
           <Route path="/doctors" element={<DoctorsPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/insurance-partners" element={<InsurancePartnersPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

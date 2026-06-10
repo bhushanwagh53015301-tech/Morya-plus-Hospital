@@ -392,7 +392,7 @@ export const doctors = [
     name: "Dr. Mangesh Gaikwad",
     specialty: "Cardioligist",
     role: "Consultant Cardiologist",
-    img: "doctor-2",
+    img: "doctor-3",
     bio: "Provides heart health consultation, assessment, and treatment recommendations.",
   },
 ];

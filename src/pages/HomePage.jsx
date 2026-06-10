@@ -20,6 +20,7 @@ import {
 import { Link } from "react-router-dom";
 import { useAppointmentModal } from "@/components/site/AppointmentModalContext";
 import { Counter } from "@/components/site/Counter";
+import { insuranceLogos } from "@/data/insuranceLogos";
 import {
   departments,
   doctors,
@@ -31,10 +32,10 @@ import {
   whyChooseUs,
 } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
-import d1 from "@/assets/images/doctor-1.jpg";
-import d2 from "@/assets/images/doctor-2.jpg";
-import d3 from "@/assets/images/doctor-3.jpg";
-import d4 from "@/assets/images/doctor-4.jpg";
+import doctor1Image from "@/assets/images/doctor-1.jpg";
+import doctor2Image from "@/assets/images/doctor-2.jpg";
+import doctor3Image from "@/assets/images/doctor-3.jpg";
+import doctor4Image from "@/assets/images/doctor-4.jpg";
 import facilityDiagnostic from "@/assets/images/facility-diagnostic.jpg";
 import facilityIcu from "@/assets/images/facility-icu.jpg";
 import facilityOt from "@/assets/images/facility-ot.jpg";
@@ -55,10 +56,10 @@ const facilityImages = {
 };
 
 const doctorImages = {
-  "doctor-1": d1,
-  "doctor-2": d2,
-  "doctor-3": d3,
-  "doctor-4": d4,
+  "doctor-1": doctor1Image,
+  "doctor-2": doctor2Image,
+  "doctor-3": doctor3Image,
+  "doctor-4": doctor4Image,
 };
 
 const slides = [
@@ -77,6 +78,7 @@ const slides = [
   },
   {
     img: heroDoctors,
+    imgClassName: "object-cover object-[center_38%] md:object-[center_30%]",
     eyebrow: "Specialist team",
     title: "Affordable Multispeciality Hospital on Pune-Solapur Highway",
     text: "Experienced consultants across 11+ departments under one roof.",
@@ -134,8 +136,6 @@ export function HomePage() {
       <EmergencySection />
       <InsuranceSection />
       <TestimonialsSection />
-      <GoogleProfile />
-      <AppointmentSection onOpenAppointment={openAppointment} />
       <FaqSection />
     </>
   );
@@ -563,7 +563,7 @@ function DoctorsSpotlightSection({ onOpenAppointment }) {
           center
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {doctors.map((doctor) => (
+          {doctors.slice(0, 4).map((doctor) => (
             <article
               key={doctor.name}
               className="overflow-hidden rounded-2xl bg-white shadow-card transition hover:shadow-soft"
@@ -599,6 +599,14 @@ function DoctorsSpotlightSection({ onOpenAppointment }) {
               </div>
             </article>
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            to="/doctors"
+            className="inline-flex items-center gap-2 rounded-full gradient-brand px-5 py-2.5 font-semibold text-white"
+          >
+            View All Doctors
+          </Link>
         </div>
       </div>
     </section>
@@ -723,39 +731,54 @@ function EmergencySection() {
 }
 
 function InsuranceSection() {
+  const homepageInsuranceLogos = insuranceLogos.slice(0, 8);
+
   return (
     <section className="container-x py-16">
-      <div className="grid gap-8 rounded-3xl border border-border/70 bg-white p-8 shadow-card lg:grid-cols-[1.4fr_1fr] lg:p-10">
-        <div>
-          <span className="text-xs font-semibold uppercase tracking-widest text-brand">
-            Insurance & Cashless
-          </span>
-          <h2 className="mt-2 font-display text-3xl font-bold text-foreground md:text-4xl">
-            Insurance and Cashless Treatment Support
-          </h2>
-          <p className="mt-4 max-w-2xl text-foreground/80">
-            We assist patients with insurance-related guidance and cashless treatment support for
-            eligible plans. Please contact our team for details and approval assistance.
-          </p>
-        </div>
-        <div className="flex flex-col justify-center rounded-2xl bg-brand-soft p-6">
-          <ul className="space-y-3 text-sm text-foreground/80">
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand" /> Help with cashless approval
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand" /> Guidance for admitted patients
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand" /> Support from our front desk
-            </li>
-          </ul>
-          <Link
-            to="/contact"
-            className="mt-6 inline-flex items-center justify-center gap-2 rounded-full gradient-brand px-5 py-3 font-semibold text-white"
-          >
-            Contact Insurance Desk
-          </Link>
+      <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-white shadow-card">
+        <div className="bg-[radial-gradient(circle_at_top_left,_rgba(13,111,193,0.12),_transparent_35%),linear-gradient(135deg,rgba(240,248,255,0.92),rgba(226,245,248,0.96))] p-8 lg:p-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-widest text-brand">
+              Insurance & Cashless
+            </span>
+            <h2 className="mt-2 font-display text-3xl font-bold text-foreground md:text-4xl">
+              Trusted Insurance Partners
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Cashless and insurance support with leading healthcare insurance providers.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-6xl rounded-[1.75rem] border border-white/70 bg-white/80 p-6 shadow-soft backdrop-blur lg:p-8">
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+              {homepageInsuranceLogos.map((logo) => (
+                <div
+                  key={logo.name}
+                  className={`flex h-36 items-center justify-center rounded-3xl border p-6 shadow-sm lg:h-40 ${
+                    logo.cardClassName ||
+                    (logo.needsDarkSurface
+                      ? "border-slate-800/80 bg-slate-900"
+                      : "border-border/60 bg-white")
+                  }`}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className={`max-h-20 w-full object-contain lg:max-h-24 ${logo.imageClassName}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Link
+                to="/insurance-partners"
+                className="inline-flex items-center justify-center rounded-full gradient-brand px-6 py-3 font-semibold text-white"
+              >
+                View All Insurance Partners
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
