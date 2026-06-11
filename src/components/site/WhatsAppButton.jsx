@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronUp } from "lucide-react";
+import { ChevronUp, PhoneCall } from "lucide-react";
 import { site } from "@/data/site";
 
 export function WhatsAppButton() {
@@ -18,6 +18,14 @@ export function WhatsAppButton() {
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+      <a
+        href={`tel:${site.phones.receptionTel}`}
+        aria-label={`Call ${site.shortName} now`}
+        className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-teal"
+      >
+        <PhoneCall className="h-6 w-6" />
+      </a>
+
       <a
         href={site.whatsapp}
         target="_blank"

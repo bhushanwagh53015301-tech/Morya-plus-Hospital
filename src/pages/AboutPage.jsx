@@ -9,9 +9,8 @@ import {
   Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Counter } from "@/components/site/Counter";
 import { PageBanner } from "@/components/site/PageBanner";
-import { site, stats, whyChooseUs } from "@/data/site";
+import { site, whyChooseUs } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
 import aboutBanner from "@/assets/images/hero-hospital.jpg";
 import aboutTeam from "@/assets/images/WhatsApp Image 2026-05-26 at 5.41.24 PM.jpeg";
@@ -156,45 +155,56 @@ export function AboutPage() {
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rounded-[2rem] bg-white p-8 shadow-card md:p-10">
             <span className="text-xs font-semibold uppercase tracking-[0.28em] text-brand">
-              Vision
+              Our Vision
             </span>
             <h3 className="mt-3 font-display text-2xl font-bold text-foreground md:text-3xl">
-              To be a trusted healthcare destination for every family we serve
+              A trusted destination for healthcare
             </h3>
             <p className="mt-4 max-w-2xl text-foreground/75">
-              We aim to deliver advanced, ethical, and affordable healthcare that patients can rely
-              on with confidence, whether for routine consultations, urgent treatment, or long-term
-              medical support.
+              To become a trusted healthcare destination by delivering ethical, affordable, and
+              advanced medical care to every patient.
             </p>
+            <ul className="mt-6 space-y-3 text-sm text-foreground/75">
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                Deliver dependable healthcare with trust and transparency.
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                Make advanced treatment accessible and affordable for local families.
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                Build long-term community confidence through ethical medical care.
+              </li>
+            </ul>
           </div>
 
-          <div className="rounded-[2rem] bg-brand text-white shadow-card">
-            <div className="p-8 md:p-10">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-white/75">
-                Mission
-              </span>
-              <h3 className="mt-3 font-display text-2xl font-bold md:text-3xl">
-                Care that is safe, compassionate, and accountable
-              </h3>
-              <ul className="mt-6 space-y-3 text-sm text-white/90">
+          <div className="rounded-[2rem] bg-white p-8 shadow-card md:p-10">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-teal">
+              Our Mission
+            </span>
+            <h3 className="mt-3 font-display text-2xl font-bold text-foreground md:text-3xl">
+              Compassion. Safety. Excellence.
+            </h3>
+            <ul className="mt-6 space-y-3 text-sm text-foreground/75">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-                  Provide quality healthcare with compassion and dignity.
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                  Quality healthcare services with compassion.
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-                  Maintain patient safety and dependable clinical standards.
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                  Ensure patient safety and satisfaction.
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-                  Offer timely diagnostics and effective treatment under one roof.
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                  Advanced diagnostic and treatment facilities.
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-                  Strengthen community health through preventive and accessible care.
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                  Build a healthier community through preventive care.
                 </li>
               </ul>
-            </div>
           </div>
         </div>
 
@@ -209,20 +219,6 @@ export function AboutPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="container-x grid grid-cols-2 gap-4 py-4 md:grid-cols-4">
-        {stats.map((item) => (
-          <div
-            key={item.label}
-            className="rounded-3xl border border-border/70 bg-white p-6 text-center shadow-card"
-          >
-            <div className="font-display text-3xl font-bold gradient-text md:text-4xl">
-              <Counter value={item.value} suffix={item.suffix} />
-            </div>
-            <div className="mt-2 text-sm text-muted-foreground">{item.label}</div>
-          </div>
-        ))}
       </section>
 
       <section className="container-x py-16">

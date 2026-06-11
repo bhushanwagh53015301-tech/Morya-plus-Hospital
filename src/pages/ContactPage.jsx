@@ -100,25 +100,37 @@ export function ContactPage() {
 }
 
 function ContactCard({ icon: Icon, title, value, href, external = false, emergency = false }) {
+  const isEmail = title.toLowerCase() === "email";
+
   return (
     <a
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className={`flex items-center gap-4 rounded-2xl border border-border/70 bg-white p-5 shadow-card transition hover:shadow-soft ${
+      className={`flex gap-4 rounded-2xl border border-border/70 bg-white p-5 shadow-card transition hover:shadow-soft ${
+        isEmail ? "items-start" : "items-center"
+      } ${
         emergency ? "ring-1 ring-emergency/30" : ""
       }`}
     >
       <span
-        className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${
+        className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${
+          isEmail ? "mt-0.5" : ""
+        } ${
           emergency ? "bg-emergency text-white" : "gradient-brand text-white"
         }`}
       >
         <Icon className="h-6 w-6" />
       </span>
-      <div className="leading-tight">
+      <div className="min-w-0 flex-1 leading-tight">
         <div className="text-xs uppercase tracking-wide text-muted-foreground">{title}</div>
-        <div className="break-all font-semibold text-foreground">{value}</div>
+        <div
+          className={`font-semibold text-foreground ${
+            isEmail ? "break-words text-[0.95rem]" : "break-all"
+          }`}
+        >
+          {value}
+        </div>
       </div>
     </a>
   );

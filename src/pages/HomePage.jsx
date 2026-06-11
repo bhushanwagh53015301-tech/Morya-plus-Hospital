@@ -126,7 +126,6 @@ export function HomePage() {
       <TrustStrip />
       <QuickActions onOpenAppointment={openAppointment} />
       <About />
-      <VisionMission />
       <StatsSection />
       <PackagesSection />
       <DepartmentsSection />
@@ -422,39 +421,6 @@ function About() {
           >
             Contact Hospital
           </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function VisionMission() {
-  return (
-    <section className="bg-brand-soft py-16">
-      <div className="container-x grid gap-6 md:grid-cols-2">
-        <div className="rounded-3xl bg-white p-8 shadow-card">
-          <span className="text-xs font-semibold uppercase tracking-widest text-brand">
-            Our Vision
-          </span>
-          <h3 className="mt-2 font-display text-2xl font-bold">
-            A trusted destination for healthcare
-          </h3>
-          <p className="mt-3 text-foreground/75">
-            To become a trusted healthcare destination by delivering ethical, affordable, and
-            advanced medical care to every patient.
-          </p>
-        </div>
-        <div className="rounded-3xl bg-white p-8 shadow-card">
-          <span className="text-xs font-semibold uppercase tracking-widest text-teal">
-            Our Mission
-          </span>
-          <h3 className="mt-2 font-display text-2xl font-bold">Compassion. Safety. Excellence.</h3>
-          <ul className="mt-3 space-y-2 text-foreground/75">
-            <li>Quality healthcare services with compassion.</li>
-            <li>Ensure patient safety and satisfaction.</li>
-            <li>Advanced diagnostic and treatment facilities.</li>
-            <li>Build a healthier community through preventive care.</li>
-          </ul>
         </div>
       </div>
     </section>

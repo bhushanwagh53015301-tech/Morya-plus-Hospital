@@ -5,6 +5,20 @@ import { site } from "@/data/site";
 import { usePageMeta } from "@/lib/usePageMeta";
 import heroHospital from "@/assets/images/moryahplushospital.png";
 
+const healthInsuranceNames = new Set([
+  "Aditya Birla Health Insurance Company Limited",
+  "Care Health Insurance Limited",
+  "Galaxy Health Insurance Company Limited",
+  "ManipalCigna Health Insurance Company Limited",
+  "Narayana Health Insurance Limited",
+  "Niva Bupa Health Insurance Company Limited",
+  "Star Health Allied Insurance Company Limited",
+  "Star Health & Allied Insurance Company Limited",
+]);
+
+const healthInsuranceLogos = insuranceLogos.filter((logo) => healthInsuranceNames.has(logo.name));
+const generalInsuranceLogos = insuranceLogos.filter((logo) => !healthInsuranceNames.has(logo.name));
+
 export function InsurancePartnersPage() {
   usePageMeta(
     "Insurance & Cashless Partners | Moryaplus Hospital Kunjirwadi Pune",
@@ -35,33 +49,17 @@ export function InsurancePartnersPage() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {insuranceLogos.map((logo) => (
-            <article
-              key={logo.name}
-              className={`flex min-h-40 flex-col items-center justify-center rounded-3xl border p-6 shadow-card ${
-                logo.cardClassName ||
-                (logo.needsDarkSurface
-                  ? "border-slate-800/80 bg-slate-900"
-                  : "border-border/70 bg-white")
-              }`}
-            >
-              <img
-                src={logo.src}
-                alt={logo.name}
-                className={`max-h-20 w-full object-contain ${logo.imageClassName}`}
-                loading="lazy"
-              />
-              <p
-                className={`mt-4 text-center text-sm font-medium leading-relaxed ${
-                  logo.cardClassName || logo.needsDarkSurface ? "text-white/90" : "text-foreground/80"
-                }`}
-              >
-                {logo.name}
-              </p>
-            </article>
-          ))}
-        </div>
+        <InsuranceSection
+          title="Health Insurance"
+          description="Health insurance companies currently listed with our support desk."
+          logos={healthInsuranceLogos}
+        />
+
+        <InsuranceSection
+          title="General Insurance"
+          description="General insurance companies currently listed for insurance and cashless coordination."
+          logos={generalInsuranceLogos}
+        />
 
         <div className="mt-10 text-center">
           <Link
@@ -73,5 +71,49 @@ export function InsurancePartnersPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function InsuranceSection({ title, description, logos }) {
+  return (
+    <section className="mt-12 first:mt-10">
+      <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h3 className="font-display text-2xl font-bold text-foreground md:text-3xl">{title}</h3>
+          <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+        </div>
+        <div className="text-sm font-semibold text-brand">{logos.length} companies</div>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {logos.map((logo) => (
+          <article
+            key={logo.name}
+            className={`flex min-h-40 flex-col items-center justify-center rounded-3xl border p-6 shadow-card ${
+              logo.cardClassName ||
+              (logo.needsDarkSurface
+                ? "border-slate-800/80 bg-slate-900"
+                : "border-border/70 bg-white")
+            }`}
+          >
+            <img
+              src={logo.src}
+              alt={logo.name}
+              className={`max-h-20 w-full object-contain ${logo.imageClassName}`}
+              loading="lazy"
+            />
+            <p
+              className={`mt-4 text-center text-sm font-medium leading-relaxed ${
+                logo.cardClassName || logo.needsDarkSurface
+                  ? "text-white/90"
+                  : "text-foreground/80"
+              }`}
+            >
+              {logo.name}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }

@@ -36,9 +36,10 @@ export const site = {
     locality: "Kunjirwadi, Pune, Maharashtra, India",
   },
   maps: {
-    profile: "https://maps.app.goo.gl/EVEwfyKETSECk2p27?g_st=aw",
+    profile:
+      "https://www.google.com/maps/search/?api=1&query=Moryaplus%20Multi%20Speciality%20Hospital%2C%20Kunjirwadi%2C%20Pune",
     embed:
-      "https://www.google.com/maps?q=Morya+Plus+Multispeciality+Hospital+Kunjirwadi+Pune&output=embed",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1644.7850515399984!2d74.06673567594362!3d18.489091027387413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2e7cc43bcc087%3A0x203e736412ab07c4!2sMoryaplus%20Multi%20Speciality%20Hospital!5e1!3m2!1sen!2sin!4v1781152168560!5m2!1sen!2sin",
   },
   hours: {
     opd: "Mon - Sat: 9:00 AM - 9:00 PM | Sun: 10:00 AM - 2:00 PM",

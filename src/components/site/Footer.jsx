@@ -62,9 +62,14 @@ export function Footer() {
           <ul className="space-y-3 text-sm text-white/80">
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-teal" />
-              <span>
+              <a
+                href={site.maps.profile}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="hover:text-white hover:underline"
+              >
                 {site.address.line2}, {site.address.locality}
-              </span>
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-teal" />
@@ -80,7 +85,10 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-teal" />
-              <a href={`mailto:${site.email}`} className="break-all hover:text-white">
+              <a
+                href={`mailto:${site.email}`}
+                className="whitespace-nowrap text-xs sm:text-sm hover:text-white"
+              >
                 {site.email}
               </a>
             </li>
@@ -94,14 +102,6 @@ export function Footer() {
             </li>
           </ul>
           <div className="mt-4 flex flex-wrap gap-4">
-            <a
-              href={site.maps.profile}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 text-sm text-teal hover:underline"
-            >
-              <MapPin className="h-4 w-4" /> View on Google Maps
-            </a>
             <a
               href={site.instagram}
               target="_blank"
