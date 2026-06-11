@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { AboutPage } from "@/pages/AboutPage";
+import { BlogDetailPage } from "@/pages/BlogDetailPage";
+import { BlogPage } from "@/pages/BlogPage";
 import { ContactPage } from "@/pages/ContactPage";
 import { DepartmentDetailPage } from "@/pages/DepartmentDetailPage";
 import { DepartmentsPage } from "@/pages/DepartmentsPage";
@@ -20,6 +22,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/appointment" element={<HomePage />} />
           <Route path="/departments" element={<DepartmentsPage />} />
           <Route path="/departments/:slug" element={<DepartmentDetailPage />} />

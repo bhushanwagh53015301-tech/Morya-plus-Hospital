@@ -33,6 +33,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link to="/blog" className="text-white/70 hover:text-white">
+                Blog
+              </Link>
+            </li>
           </ul>
         </div>
 
