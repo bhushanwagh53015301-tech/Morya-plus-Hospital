@@ -5,6 +5,9 @@ import d1 from "@/assets/images/doctor-1.jpg";
 import d2 from "@/assets/images/doctor-2.jpg";
 import d3 from "@/assets/images/doctor-3.jpg";
 import d4 from "@/assets/images/doctor-4.jpg";
+import drHarshadHon from "@/assets/Doctor-images/Dr. Harshad Hon.jpeg";
+import drPratikMemane from "@/assets/Doctor-images/Pratik memane.jpeg";
+import drSwapnilBagdure from "@/assets/Doctor-images/Swapnil-bagdure.jpeg";
 import doctorsBanner from "@/assets/images/moryahplushospital.png";
 
 const images = {
@@ -12,6 +15,9 @@ const images = {
   "doctor-2": d2,
   "doctor-3": d3,
   "doctor-4": d4,
+  "doctor-harshad-hon": drHarshadHon,
+  "doctor-pratik-memane": drPratikMemane,
+  "doctor-swapnil-bagdure": drSwapnilBagdure,
 };
 
 export function DoctorsPage() {
@@ -36,19 +42,23 @@ export function DoctorsPage() {
               key={doctor.name}
               className="overflow-hidden rounded-2xl bg-white shadow-card transition hover:shadow-soft"
             >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src={images[doctor.img]}
-                  alt={doctor.name}
-                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+              {doctor.img ? (
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={images[doctor.img]}
+                    alt={doctor.name}
+                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ) : null}
               <div className="p-5">
                 <h2 className="font-semibold">{doctor.name}</h2>
                 <p className="text-sm text-brand">{doctor.specialty}</p>
                 <p className="mt-0.5 text-xs text-muted-foreground">{doctor.role}</p>
-                <p className="mt-3 text-sm text-foreground/75">{doctor.bio}</p>
+                {doctor.bio ? (
+                  <p className="mt-3 text-sm text-foreground/75">{doctor.bio}</p>
+                ) : null}
               </div>
             </article>
           ))}

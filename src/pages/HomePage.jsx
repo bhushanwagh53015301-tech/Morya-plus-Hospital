@@ -36,6 +36,9 @@ import doctor1Image from "@/assets/images/doctor-1.jpg";
 import doctor2Image from "@/assets/images/doctor-2.jpg";
 import doctor3Image from "@/assets/images/doctor-3.jpg";
 import doctor4Image from "@/assets/images/doctor-4.jpg";
+import drHarshadHon from "@/assets/Doctor-images/Dr. Harshad Hon.jpeg";
+import drPratikMemane from "@/assets/Doctor-images/Pratik memane.jpeg";
+import drSwapnilBagdure from "@/assets/Doctor-images/Swapnil-bagdure.jpeg";
 import facilityDiagnostic from "@/assets/images/facility-diagnostic.jpg";
 import facilityIcu from "@/assets/images/facility-icu.jpg";
 import facilityOt from "@/assets/images/facility-ot.jpg";
@@ -60,6 +63,9 @@ const doctorImages = {
   "doctor-2": doctor2Image,
   "doctor-3": doctor3Image,
   "doctor-4": doctor4Image,
+  "doctor-harshad-hon": drHarshadHon,
+  "doctor-pratik-memane": drPratikMemane,
+  "doctor-swapnil-bagdure": drSwapnilBagdure,
 };
 
 const slides = [
@@ -534,19 +540,23 @@ function DoctorsSpotlightSection({ onOpenAppointment }) {
               key={doctor.name}
               className="overflow-hidden rounded-2xl bg-white shadow-card transition hover:shadow-soft"
             >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src={doctorImages[doctor.img]}
-                  alt={doctor.name}
-                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+              {doctor.img ? (
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={doctorImages[doctor.img]}
+                    alt={doctor.name}
+                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ) : null}
               <div className="p-5">
                 <h3 className="font-semibold">{doctor.name}</h3>
                 <p className="text-sm text-brand">{doctor.specialty}</p>
                 <p className="mt-1 text-xs text-muted-foreground">{doctor.role}</p>
-                <p className="mt-3 text-sm text-foreground/75">{doctor.bio}</p>
+                {doctor.bio ? (
+                  <p className="mt-3 text-sm text-foreground/75">{doctor.bio}</p>
+                ) : null}
                 <div className="mt-4 flex flex-wrap gap-2">
                   <button
                     type="button"
